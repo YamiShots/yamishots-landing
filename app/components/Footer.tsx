@@ -9,12 +9,12 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-10 px-6">
+    <footer className="border-t border-white/5 py-10 px-6 bg-[#080808]">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Brand */}
         <div>
           <a href="#" className="text-white font-bold text-lg tracking-tight">
-            Yami<span className="text-amber-500">Shots</span>
+            Yami<span className="text-accent">Shots</span>
           </a>
           <p className="text-zinc-700 text-xs mt-1">
             Fotografia &amp; Video · Moto e Auto
@@ -40,7 +40,7 @@ export default function Footer() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-500 hover:text-amber-500 transition-colors"
+            className="text-zinc-500 hover:text-accent transition-colors"
           >
             WhatsApp
           </a>

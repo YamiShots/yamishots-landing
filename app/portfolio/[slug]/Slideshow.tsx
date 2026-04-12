@@ -90,7 +90,7 @@ export default function Slideshow({ photos, client }: SlideshowProps) {
         {/* Subject badge */}
         {photo.subject && (
           <div className="absolute top-4 left-4 z-10">
-            <span className="bg-amber-500 text-black text-xs font-bold px-3 py-1.5 rounded-full">
+            <span className="bg-accent text-white text-xs font-bold px-3 py-1.5 rounded-full">
               {photo.subject}
             </span>
           </div>
@@ -135,7 +135,7 @@ export default function Slideshow({ photos, client }: SlideshowProps) {
             aria-label={`Vai alla foto ${i + 1}`}
             className={`rounded-full transition-all duration-300 ${
               i === current
-                ? 'w-5 h-1.5 bg-amber-500'
+                ? 'w-5 h-1.5 bg-accent'
                 : 'w-1.5 h-1.5 bg-zinc-600 hover:bg-zinc-400'
             }`}
           />

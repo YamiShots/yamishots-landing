@@ -48,10 +48,10 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-28 px-6">
+    <section id="pricing" className="py-28 px-6 bg-[#0d0d0d]">
       <div className="max-w-5xl mx-auto">
         <div className="mb-16 text-center">
-          <span className="text-amber-500 text-xs font-semibold uppercase tracking-widest">
+          <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
             Prezzi
           </span>
           <h2 className="mt-4 text-4xl md:text-5xl font-bold text-white">
@@ -68,13 +68,13 @@ export default function Pricing() {
               key={plan.name}
               className={`relative rounded-2xl p-7 flex flex-col ${
                 plan.highlighted
-                  ? 'bg-amber-500/8 border-2 border-amber-500/35'
+                  ? 'bg-accent/8 border-2 border-accent/35'
                   : 'bg-zinc-900 border border-white/5'
               }`}
             >
               {plan.highlighted && 'badge' in plan && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <span className="bg-amber-500 text-black text-xs font-bold px-3 py-1 rounded-full">
+                  <span className="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
                     {plan.badge}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export default function Pricing() {
                     className="flex items-start gap-2.5 text-sm text-zinc-400"
                   >
                     <svg
-                      className="mt-0.5 flex-shrink-0 text-amber-500"
+                      className="mt-0.5 flex-shrink-0 text-accent"
                       width="13"
                       height="13"
                       viewBox="0 0 24 24"
@@ -120,8 +120,8 @@ export default function Pricing() {
                 rel="noopener noreferrer"
                 className={`inline-flex items-center justify-center py-3 px-6 rounded-xl text-sm font-semibold transition-all duration-200 ${
                   plan.highlighted
-                    ? 'bg-amber-500 hover:bg-amber-400 text-black'
-                    : 'bg-white/5 hover:bg-white/10 text-white border border-white/8'
+                    ? 'bg-accent hover:bg-accent-hover text-white'
+                    : 'bg-transparent hover:bg-white/5 text-white border border-[#333333] hover:border-accent'
                 }`}
               >
                 {plan.cta}

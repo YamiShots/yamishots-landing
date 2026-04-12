@@ -7,9 +7,9 @@ const consequences = [
 
 export default function Costs() {
   return (
-    <section className="py-28 px-6 bg-zinc-900/30">
+    <section className="py-28 px-6 bg-[#0a0a0a]">
       <div className="max-w-5xl mx-auto">
-        <span className="text-amber-500 text-xs font-semibold uppercase tracking-widest">
+        <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
           Il costo reale
         </span>
 
@@ -43,7 +43,7 @@ export default function Costs() {
             {consequences.map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 bg-zinc-900 border border-white/5 rounded-xl p-4"
+                className="flex items-start gap-3 bg-[#111111] border border-white/5 rounded-xl p-4"
               >
                 <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-red-500/15 flex items-center justify-center">
                   <div className="w-1.5 h-1.5 rounded-full bg-red-500" />

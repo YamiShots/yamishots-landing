@@ -21,10 +21,10 @@ const steps = [
 
 export default function Method() {
   return (
-    <section id="method" className="py-28 px-6 bg-zinc-900/30">
+    <section id="method" className="py-28 px-6 bg-[#0a0a0a]">
       <div className="max-w-5xl mx-auto">
         <div className="mb-16 text-center">
-          <span className="text-amber-500 text-xs font-semibold uppercase tracking-widest">
+          <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
             Il processo
           </span>
           <h2 className="mt-4 text-4xl md:text-5xl font-bold text-white">
@@ -40,8 +40,8 @@ export default function Method() {
           {steps.map((step, i) => (
             <div key={step.number} className="relative flex flex-col items-center md:items-start text-center md:text-left">
               {/* Step number badge */}
-              <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-zinc-900 border border-amber-500/20 mb-6">
-                <span className="text-amber-500 font-bold text-xl">{step.number}</span>
+              <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-[#111111] border border-accent/20 mb-6">
+                <span className="text-accent font-bold text-xl">{step.number}</span>
               </div>
               <h3 className="text-white font-bold text-xl mb-3">{step.title}</h3>
               <p className="text-zinc-500 text-sm leading-relaxed">{step.description}</p>

@@ -33,10 +33,10 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-28 px-6 bg-zinc-900/30">
+    <section id="faq" className="py-28 px-6 bg-[#0a0a0a]">
       <div className="max-w-2xl mx-auto">
         <div className="mb-16 text-center">
-          <span className="text-amber-500 text-xs font-semibold uppercase tracking-widest">
+          <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
             FAQ
           </span>
           <h2 className="mt-4 text-4xl md:text-5xl font-bold text-white">
@@ -52,8 +52,8 @@ export default function FAQ() {
               key={i}
               className={`rounded-2xl border overflow-hidden transition-colors duration-200 ${
                 open === i
-                  ? 'border-white/12 bg-zinc-900'
-                  : 'border-white/5 bg-zinc-900/40'
+                  ? 'border-white/12 bg-[#111111]'
+                  : 'border-white/5 bg-[#0d0d0d]'
               }`}
             >
               <button

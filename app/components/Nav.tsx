@@ -29,7 +29,7 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="text-white font-bold text-xl tracking-tight">
-          Yami<span className="text-amber-500">Shots</span>
+          Yami<span className="text-accent">Shots</span>
         </a>
 
         {/* Desktop nav */}
@@ -50,7 +50,7 @@ export default function Nav() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-black text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+            className="hidden md:inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
           >
             Scrivimi
           </a>
@@ -101,7 +101,7 @@ export default function Nav() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-amber-500 hover:bg-amber-400 text-black text-sm font-semibold px-4 py-3 rounded-lg transition-colors duration-200"
+            className="inline-flex items-center justify-center bg-accent hover:bg-accent-hover text-white text-sm font-semibold px-4 py-3 rounded-lg transition-colors duration-200"
           >
             Scrivimi su WhatsApp
           </a>

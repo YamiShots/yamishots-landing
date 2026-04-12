@@ -1,44 +1,49 @@
+'use client'
+
 import { WA_LINK } from '../lib/constants'
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-6 overflow-hidden">
-      {/* Amber glow background */}
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-6 overflow-hidden bg-[#0a0a0a]"
+    >
+      {/* Hero background image — replace src when ready */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/hero-bg.jpg"
+        alt="YamiShots hero"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+      />
+
+      {/* Gradient overlay */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 z-[1]"
         style={{
           background:
-            'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(245,158,11,0.13) 0%, transparent 65%)',
+            'linear-gradient(to bottom, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.80) 100%)',
         }}
       />
 
-      {/* Subtle grid */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)',
-          backgroundSize: '72px 72px',
-        }}
-      />
-
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      {/* Content */}
+      <div className="relative z-[2] max-w-4xl mx-auto text-center">
         {/* Eyebrow */}
-        <p className="inline-flex items-center gap-2 text-amber-500 text-xs font-semibold uppercase tracking-widest mb-8">
-          <span className="w-4 h-px bg-amber-500" />
+        <p className="inline-flex items-center gap-2 text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase mb-8">
+          <span className="w-4 h-px bg-[#888888]" />
           Fotografia &amp; Video · Moto e Auto
-          <span className="w-4 h-px bg-amber-500" />
+          <span className="w-4 h-px bg-[#888888]" />
         </p>
 
         {/* Main headline */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.02] tracking-tight mb-6">
           <span className="text-white">Il tuo livello è alto.</span>
           <br />
-          <span className="text-zinc-500">La tua vetrina no.</span>
+          <span className="text-white/40">La tua vetrina no.</span>
         </h1>
 
         {/* Sub */}
-        <p className="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
           Ogni giorno perdi clienti premium non perché lavori male,
           <br className="hidden sm:block" />
           ma perché comunichi come tutti gli altri.
@@ -50,14 +55,14 @@ export default function Hero() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-black font-bold px-8 py-4 rounded-xl text-base transition-all duration-200 hover:scale-[1.02] shadow-lg shadow-amber-500/20"
+            className="inline-flex items-center justify-center gap-2.5 bg-accent hover:bg-accent-hover text-white font-bold px-8 py-4 rounded-xl text-base transition-all duration-200 hover:-translate-y-px shadow-lg shadow-accent/20"
           >
             <WhatsAppIcon />
             Scrivimi su WhatsApp
           </a>
           <a
             href="#works"
-            className="inline-flex items-center justify-center gap-2 text-white border border-white/10 hover:border-white/25 hover:bg-white/5 px-8 py-4 rounded-xl text-base transition-all duration-200"
+            className="inline-flex items-center justify-center gap-2 text-white border border-[#333333] hover:border-accent hover:text-accent px-8 py-4 rounded-xl text-base transition-all duration-200"
           >
             Guarda i lavori
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -66,20 +71,20 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Social proof strip */}
-        <div className="mt-16 flex items-center justify-center gap-3 text-zinc-700 text-sm">
+        {/* Social proof */}
+        <div className="mt-10 flex items-center justify-center gap-3 text-[13px] text-[#aaaaaa] tracking-[0.05em]">
           <span>Hypermoto</span>
-          <span className="text-zinc-800">·</span>
+          <span className="text-[#444]">|</span>
           <span>MotoPerformance</span>
-          <span className="text-zinc-800">·</span>
+          <span className="text-[#444]">|</span>
           <span>MotoArgento</span>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-700">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-2 text-[#555]">
         <span className="text-[10px] uppercase tracking-widest">Scorri</span>
-        <div className="w-px h-8 bg-gradient-to-b from-zinc-600 to-transparent" />
+        <div className="w-px h-8 bg-gradient-to-b from-[#555] to-transparent" />
       </div>
     </section>
   )

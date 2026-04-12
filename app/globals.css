@@ -7,24 +7,24 @@ html {
 }
 
 body {
-  background-color: #09090b;
-  color: #fafafa;
+  background-color: #0a0a0a;
+  color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: #f59e0b;
-  color: #09090b;
+  background-color: #C0392B;
+  color: #ffffff;
 }
 
 ::-webkit-scrollbar {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #1f1f1f;
   border-radius: 2px;
 }
