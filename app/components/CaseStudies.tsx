@@ -16,16 +16,16 @@ const cases = [
     image: '/images/case-hypermoto.jpg',
     color: 'from-zinc-800 to-zinc-900',
   },
-  {
-    slug: 'motoperformance',
-    client: 'MotoPerformance',
-    tag: 'Shooting singolo',
-    description:
-      'Shooting singolo. Ogni fotografia è pensata per trasmettere la passione e dedizione con cui lavorano.',
-    result: 'Identità visiva coerente',
-    image: '/images/case-motoperformance.jpg',
-    color: 'from-zinc-800 to-zinc-900',
-  },
+  // BACKUP — MotoPerformance (nascosto temporaneamente)
+  // {
+  //   slug: 'motoperformance',
+  //   client: 'MotoPerformance',
+  //   tag: 'Shooting singolo',
+  //   description: 'Shooting singolo. Ogni fotografia è pensata per trasmettere la passione e dedizione con cui lavorano.',
+  //   result: 'Identità visiva coerente',
+  //   image: '/images/case-motoperformance.jpg',
+  //   color: 'from-zinc-800 to-zinc-900',
+  // },
   {
     slug: 'motoargento',
     client: 'MotoArgento',
