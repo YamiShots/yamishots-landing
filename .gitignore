@@ -1,0 +1,25 @@
+# Next.js
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Build
+.vercel
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+patch-fs.cjs
+build-wrapper.cjs
+
+# Other projects in parent folder (exclude everything not belonging to this project)
+DaVinci-Scripts/

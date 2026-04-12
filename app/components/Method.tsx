@@ -1,0 +1,54 @@
+const steps = [
+  {
+    number: '01',
+    title: 'Consulenza',
+    description:
+      'Obiettivo, stile e cosa valorizzare. Ti dico subito cosa serve e cosa è inutile.',
+  },
+  {
+    number: '02',
+    title: 'Shooting',
+    description:
+      'Riprese e foto curate: processo, dettagli e risultato, con uno stile visivo coerente.',
+  },
+  {
+    number: '03',
+    title: 'Consegna',
+    description:
+      'Reels + foto ottimizzate per social. Una revisione inclusa. Pubblicazione facile.',
+  },
+]
+
+export default function Method() {
+  return (
+    <section id="method" className="py-28 px-6 bg-zinc-900/30">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-16 text-center">
+          <span className="text-amber-500 text-xs font-semibold uppercase tracking-widest">
+            Il processo
+          </span>
+          <h2 className="mt-4 text-4xl md:text-5xl font-bold text-white">
+            Come si alza la percezione?
+          </h2>
+          <p className="mt-3 text-zinc-500 text-lg">Tre step. Nel concreto.</p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 relative">
+          {/* Connector line (desktop) */}
+          <div className="hidden md:block absolute top-8 left-[calc(16.66%+1rem)] right-[calc(16.66%+1rem)] h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
+
+          {steps.map((step, i) => (
+            <div key={step.number} className="relative flex flex-col items-center md:items-start text-center md:text-left">
+              {/* Step number badge */}
+              <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-zinc-900 border border-amber-500/20 mb-6">
+                <span className="text-amber-500 font-bold text-xl">{step.number}</span>
+              </div>
+              <h3 className="text-white font-bold text-xl mb-3">{step.title}</h3>
+              <p className="text-zinc-500 text-sm leading-relaxed">{step.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
