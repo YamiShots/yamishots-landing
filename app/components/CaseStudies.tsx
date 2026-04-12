@@ -1,9 +1,5 @@
 import Link from 'next/link'
-
-// To add cover images:
-// 1. Place files in /public/images/ (e.g. case-hypermoto.jpg)
-// 2. Uncomment the Image import and usage below
-// import Image from 'next/image'
+import Image from 'next/image'
 
 const cases = [
   {
@@ -62,21 +58,12 @@ export default function CaseStudies() {
             >
               {/* Image area */}
               <div className="relative h-52 overflow-hidden">
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${c.color} group-hover:scale-105 transition-transform duration-500`}
+                <Image
+                  src={c.image}
+                  alt={c.client}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-zinc-600 text-sm font-medium">{c.client}</span>
-                </div>
-                {/*
-                  UNCOMMENT when cover image is ready:
-                  <Image
-                    src={c.image}
-                    alt={c.client}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                */}
                 <div className="absolute bottom-3 left-3">
                   <span className="bg-accent text-white text-xs font-bold px-2.5 py-1 rounded-md">
                     {c.tag}

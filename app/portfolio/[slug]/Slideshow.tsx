@@ -67,22 +67,13 @@ export default function Slideshow({ photos, client }: SlideshowProps) {
               className="relative h-full"
               style={{ width: `${100 / photos.length}%` }}
             >
-              {/* Placeholder shown until real image is added */}
-              <div className="absolute inset-0 bg-zinc-800 flex items-center justify-center">
-                <span className="text-zinc-600 text-sm font-medium">
-                  {client} — {i + 1}/{photos.length}
-                </span>
-              </div>
-              {/*
-                Uncomment when images are ready:
-                <Image
-                  src={p.src}
-                  alt={`${client} foto ${i + 1}`}
-                  fill
-                  className="object-cover"
-                  priority={i === 0}
-                />
-              */}
+              <Image
+                src={p.src}
+                alt={`${client} foto ${i + 1}`}
+                fill
+                className="object-cover"
+                priority={i === 0}
+              />
             </div>
           ))}
         </div>
