@@ -1,37 +1,22 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { WA_LINK } from '@/app/lib/constants'
+import GalleryStack from '@/app/components/GalleryStack'
+import GalleryGrid from '@/app/components/GalleryGrid'
 
-const panigale = [
-  '/images/portfolio/motoargento/01.jpg',
-  '/images/portfolio/motoargento/02.jpg',
-  '/images/portfolio/motoargento/03.jpg',
-  '/images/portfolio/motoargento/04.jpg',
-  '/images/portfolio/motoargento/05.jpg',
-  '/images/portfolio/motoargento/06.jpg',
+const panigalePhotos = [
+  { src: '/images/portfolio/motoargento/01.jpg', caption: 'QUANDO IL COLORE \u00C8 GI\u00C0 UN MESSAGGIO' },
+  { src: '/images/portfolio/motoargento/02.jpg', caption: 'LAMBORGHINI NON \u00C8 UN DETTAGLIO. \u00C8 IL PUNTO' },
+  { src: '/images/portfolio/motoargento/03.jpg', caption: 'LA COLLABORAZIONE CHE GIUSTIFICA IL PREZZO' },
+  { src: '/images/portfolio/motoargento/04.jpg', caption: 'OGNI SCATTO COSTRUISCE UN POSIZIONAMENTO' },
+  { src: '/images/portfolio/motoargento/05.jpg', caption: 'IL FEED CHE I CLIENTI GIUSTI NOTANO' },
+  { src: '/images/portfolio/motoargento/06.jpg', caption: 'NON UNA MOTO. UN OGGETTO DI DESIDERIO' },
 ]
 
-const ktm = [
-  '/images/portfolio/motoargento/07.jpg',
-  '/images/portfolio/motoargento/08.jpg',
-  '/images/portfolio/motoargento/09.jpg',
-  '/images/portfolio/motoargento/10.jpg',
-]
-
-const panigaleCaptions = [
-  'QUANDO IL COLORE \u00C8 GI\u00C0 UN MESSAGGIO',
-  'LAMBORGHINI NON \u00C8 UN DETTAGLIO. \u00C8 IL PUNTO',
-  'LA COLLABORAZIONE CHE GIUSTIFICA IL PREZZO',
-  'OGNI SCATTO COSTRUISCE UN POSIZIONAMENTO',
-  'IL FEED CHE I CLIENTI GIUSTI NOTANO',
-  'NON UNA MOTO. UN OGGETTO DI DESIDERIO',
-]
-
-const ktmCaptions = [
-  'LA BESTIA CHE NON HA BISOGNO DI PRESENTAZIONI',
-  'ANGOLI CHE NESSUN COMPETITOR HA IL CORAGGIO DI MOSTRARE',
-  'RC8C: IL CONTENUTO CHE FILTRA IL CLIENTE',
-  'QUANDO LA MOTO PARLA E IL BRAND ASCOLTA',
+const ktmPhotos = [
+  { src: '/images/portfolio/motoargento/07.jpg', caption: 'LA BESTIA CHE NON HA BISOGNO DI PRESENTAZIONI' },
+  { src: '/images/portfolio/motoargento/08.jpg', caption: 'ANGOLI CHE NESSUN COMPETITOR HA IL CORAGGIO DI MOSTRARE' },
+  { src: '/images/portfolio/motoargento/09.jpg', caption: 'RC8C: IL CONTENUTO CHE FILTRA IL CLIENTE' },
+  { src: '/images/portfolio/motoargento/10.jpg', caption: 'QUANDO LA MOTO PARLA E IL BRAND ASCOLTA' },
 ]
 
 const instagramPosts = [
@@ -118,7 +103,7 @@ export default function MotoargentoPage() {
         </div>
       </section>
 
-      {/* 3. I CONTENUTI — Instagram */}
+      {/* 3. I CONTENUTI — Instagram placeholder */}
       <section className="py-20 px-6 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto">
           <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
@@ -149,7 +134,7 @@ export default function MotoargentoPage() {
         </div>
       </section>
 
-      {/* 4. GALLERIA PANIGALE — full-width stack */}
+      {/* 4. GALLERIA PANIGALE */}
       <section className="py-20 px-6 bg-[#0d0d0d]">
         <div className="max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
@@ -159,38 +144,10 @@ export default function MotoargentoPage() {
             Panigale V4 Lamborghini
           </h2>
         </div>
-        <div className="max-w-5xl mx-auto flex flex-col" style={{ gap: '6px' }}>
-          {panigale.map((src, i) => (
-            <div
-              key={i}
-              className="relative w-full overflow-hidden group"
-              style={{ height: 'clamp(300px, 40vw, 480px)' }}
-            >
-              <Image
-                src={src}
-                alt={`Panigale V4 Lamborghini — ${i + 1}`}
-                fill
-                className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.02]"
-                sizes="100vw"
-              />
-              <div className="absolute bottom-4 left-4 z-10">
-                <span
-                  className="text-white/40"
-                  style={{
-                    fontSize: '11px',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {panigaleCaptions[i]}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <GalleryStack photos={panigalePhotos} />
       </section>
 
-      {/* 5. GALLERIA KTM RC8C — grid asimmetrica (4 foto, 2 righe) */}
+      {/* 5. GALLERIA KTM */}
       <section className="py-20 px-6 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
@@ -200,73 +157,7 @@ export default function MotoargentoPage() {
             KTM RC8C
           </h2>
         </div>
-
-        {/* Desktop grid — 4 foto, 2 righe */}
-        <div
-          className="hidden md:grid max-w-5xl mx-auto"
-          style={{
-            gridTemplateColumns: '2fr 1fr 1fr',
-            gridTemplateRows: '320px 220px',
-            gap: '10px',
-          }}
-        >
-          {/* Foto 1: col 1, righe 1-2 */}
-          <div
-            className="relative overflow-hidden group"
-            style={{ gridColumn: '1', gridRow: '1 / 3', borderRadius: '3px' }}
-          >
-            <Image src={ktm[0]} alt="KTM RC8C 1" fill className="object-cover" sizes="40vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-            <div className="absolute bottom-4 left-4">
-              <span className="text-white/40" style={{ fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                {ktmCaptions[0]}
-              </span>
-            </div>
-          </div>
-          {/* Foto 2: col 2, riga 1 */}
-          <div
-            className="relative overflow-hidden group"
-            style={{ gridColumn: '2', gridRow: '1', borderRadius: '3px' }}
-          >
-            <Image src={ktm[1]} alt="KTM RC8C 2" fill className="object-cover" sizes="20vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-          </div>
-          {/* Foto 3: col 3, riga 1 */}
-          <div
-            className="relative overflow-hidden group"
-            style={{ gridColumn: '3', gridRow: '1', borderRadius: '3px' }}
-          >
-            <Image src={ktm[2]} alt="KTM RC8C 3" fill className="object-cover" sizes="20vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-          </div>
-          {/* Foto 4: col 2-3, riga 2 */}
-          <div
-            className="relative overflow-hidden group"
-            style={{ gridColumn: '2 / 4', gridRow: '2', borderRadius: '3px' }}
-          >
-            <Image src={ktm[3]} alt="KTM RC8C 4" fill className="object-cover" sizes="40vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-            <div className="absolute bottom-4 left-4">
-              <span className="text-white/40" style={{ fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                {ktmCaptions[3]}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile: colonna singola */}
-        <div className="md:hidden max-w-5xl mx-auto flex flex-col" style={{ gap: '10px' }}>
-          {ktm.map((src, i) => (
-            <div key={i} className="relative overflow-hidden" style={{ height: '260px', borderRadius: '3px' }}>
-              <Image src={src} alt={`KTM RC8C ${i + 1}`} fill className="object-cover" sizes="100vw" />
-              <div className="absolute bottom-3 left-3">
-                <span className="text-white/40" style={{ fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                  {ktmCaptions[i]}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <GalleryGrid photos={ktmPhotos} />
       </section>
 
       {/* 6. RISULTATO */}

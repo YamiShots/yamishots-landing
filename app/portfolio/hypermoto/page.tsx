@@ -1,37 +1,22 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { WA_LINK } from '@/app/lib/constants'
+import GalleryStack from '@/app/components/GalleryStack'
+import GalleryGrid from '@/app/components/GalleryGrid'
 
-const superveloce = [
-  '/images/portfolio/hypermoto/01.jpg',
-  '/images/portfolio/hypermoto/02.jpg',
-  '/images/portfolio/hypermoto/03.jpg',
-  '/images/portfolio/hypermoto/04.jpg',
-  '/images/portfolio/hypermoto/05.jpg',
+const supervelocePhotos = [
+  { src: '/images/portfolio/hypermoto/01.jpg', caption: 'IL DETTAGLIO CHE GIUSTIFICA IL PREZZO' },
+  { src: '/images/portfolio/hypermoto/02.jpg', caption: 'FORMA E FUNZIONE COME UN UNICO LINGUAGGIO' },
+  { src: '/images/portfolio/hypermoto/03.jpg', caption: 'OGNI ANGOLO RACCONTA UNA SCELTA DI STILE' },
+  { src: '/images/portfolio/hypermoto/04.jpg', caption: 'PRODUZIONE CHE COSTRUISCE PERCEZIONE' },
+  { src: '/images/portfolio/hypermoto/05.jpg', caption: 'L\u2019IDENTIT\u00C0 VISIVA INIZIA QUI' },
 ]
 
-const streetfighter = [
-  '/images/portfolio/hypermoto/06.jpg',
-  '/images/portfolio/hypermoto/07.jpg',
-  '/images/portfolio/hypermoto/08.jpg',
-  '/images/portfolio/hypermoto/09.jpg',
-  '/images/portfolio/hypermoto/10.jpg',
-]
-
-const supervelocceCaptions = [
-  'IL DETTAGLIO CHE GIUSTIFICA IL PREZZO',
-  'FORMA E FUNZIONE COME UN UNICO LINGUAGGIO',
-  'OGNI ANGOLO RACCONTA UNA SCELTA DI STILE',
-  'PRODUZIONE CHE COSTRUISCE PERCEZIONE',
-  'L\u2019IDENTIT\u00C0 VISIVA INIZIA QUI',
-]
-
-const streetfighterCaptions = [
-  'UNA COLLABORAZIONE CHE SI VEDE',
-  'STREETFIGHTER. NIENT\u2019ALTRO DA AGGIUNGERE',
-  'IL BRAND COME ESTENSIONE DELLA MOTO',
-  'CONTENUTO CHE POSIZIONA PRIMA ANCORA DI VENDERE',
-  'QUANDO LA MOTO PARLA DA SOLA',
+const streetfighterPhotos = [
+  { src: '/images/portfolio/hypermoto/06.jpg', caption: 'UNA COLLABORAZIONE CHE SI VEDE' },
+  { src: '/images/portfolio/hypermoto/07.jpg', caption: 'STREETFIGHTER. NIENT\u2019ALTRO DA AGGIUNGERE' },
+  { src: '/images/portfolio/hypermoto/08.jpg', caption: 'IL BRAND COME ESTENSIONE DELLA MOTO' },
+  { src: '/images/portfolio/hypermoto/09.jpg', caption: 'CONTENUTO CHE POSIZIONA PRIMA ANCORA DI VENDERE' },
+  { src: '/images/portfolio/hypermoto/10.jpg', caption: 'QUANDO LA MOTO PARLA DA SOLA' },
 ]
 
 const reels = [
@@ -142,7 +127,7 @@ export default function HypermotoPage() {
         </div>
       </section>
 
-      {/* 4. GALLERIA SUPERVELOCE — full-width stack */}
+      {/* 4. GALLERIA SUPERVELOCE */}
       <section className="py-20 px-6 bg-[#0d0d0d]">
         <div className="max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
@@ -152,38 +137,10 @@ export default function HypermotoPage() {
             Superveloce 1000 Serie Oro
           </h2>
         </div>
-        <div className="max-w-5xl mx-auto flex flex-col" style={{ gap: '6px' }}>
-          {superveloce.map((src, i) => (
-            <div
-              key={i}
-              className="relative w-full overflow-hidden group"
-              style={{ height: 'clamp(300px, 40vw, 480px)' }}
-            >
-              <Image
-                src={src}
-                alt={`Superveloce 1000 Serie Oro — ${i + 1}`}
-                fill
-                className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.02]"
-                sizes="100vw"
-              />
-              <div className="absolute bottom-4 left-4 z-10">
-                <span
-                  className="text-white/40"
-                  style={{
-                    fontSize: '11px',
-                    letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {supervelocceCaptions[i]}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <GalleryStack photos={supervelocePhotos} />
       </section>
 
-      {/* 5. GALLERIA STREETFIGHTER — grid asimmetrica */}
+      {/* 5. GALLERIA STREETFIGHTER */}
       <section className="py-20 px-6 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto mb-10">
           <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
@@ -193,66 +150,7 @@ export default function HypermotoPage() {
             Streetfighter V4 x Supreme
           </h2>
         </div>
-
-        {/* Desktop grid — 5 foto su 6 posizioni, ultima cella vuota */}
-        <div
-          className="hidden md:grid max-w-5xl mx-auto"
-          style={{
-            gridTemplateColumns: '2fr 1fr 1fr',
-            gridTemplateRows: '320px 220px 260px',
-            gap: '10px',
-          }}
-        >
-          {/* Foto 1: col 1, righe 1-2 */}
-          <div className="relative overflow-hidden group" style={{ gridColumn: '1', gridRow: '1 / 3', borderRadius: '3px' }}>
-            <Image src={streetfighter[0]} alt="Streetfighter 1" fill className="object-cover" sizes="40vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-            <div className="absolute bottom-4 left-4">
-              <span className="text-white/40" style={{ fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                {streetfighterCaptions[0]}
-              </span>
-            </div>
-          </div>
-          {/* Foto 2: col 2, riga 1 */}
-          <div className="relative overflow-hidden group" style={{ gridColumn: '2', gridRow: '1', borderRadius: '3px' }}>
-            <Image src={streetfighter[1]} alt="Streetfighter 2" fill className="object-cover" sizes="20vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-          </div>
-          {/* Foto 3: col 3, riga 1 */}
-          <div className="relative overflow-hidden group" style={{ gridColumn: '3', gridRow: '1', borderRadius: '3px' }}>
-            <Image src={streetfighter[2]} alt="Streetfighter 3" fill className="object-cover" sizes="20vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-          </div>
-          {/* Foto 4: col 2-3, riga 2 */}
-          <div className="relative overflow-hidden group" style={{ gridColumn: '2 / 4', gridRow: '2', borderRadius: '3px' }}>
-            <Image src={streetfighter[3]} alt="Streetfighter 4" fill className="object-cover" sizes="40vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-          </div>
-          {/* Foto 5: col 1-2, riga 3 */}
-          <div className="relative overflow-hidden group" style={{ gridColumn: '1 / 3', gridRow: '3', borderRadius: '3px' }}>
-            <Image src={streetfighter[4]} alt="Streetfighter 5" fill className="object-cover" sizes="60vw" />
-            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-[0.15] transition-opacity duration-300" />
-            <div className="absolute bottom-4 left-4">
-              <span className="text-white/40" style={{ fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                {streetfighterCaptions[4]}
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile: colonna singola */}
-        <div className="md:hidden max-w-5xl mx-auto flex flex-col" style={{ gap: '10px' }}>
-          {streetfighter.map((src, i) => (
-            <div key={i} className="relative overflow-hidden" style={{ height: '260px', borderRadius: '3px' }}>
-              <Image src={src} alt={`Streetfighter ${i + 1}`} fill className="object-cover" sizes="100vw" />
-              <div className="absolute bottom-3 left-3">
-                <span className="text-white/40" style={{ fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                  {streetfighterCaptions[i]}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        <GalleryGrid photos={streetfighterPhotos} />
       </section>
 
       {/* 6. RISULTATO */}
