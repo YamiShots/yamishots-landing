@@ -5,9 +5,9 @@ import { WA_LINK } from '@/app/lib/constants'
 import Slideshow from './Slideshow'
 
 export function generateStaticParams() {
-  // hypermoto ha una pagina statica dedicata in /portfolio/hypermoto/page.tsx
+  // hypermoto e motoargento hanno pagine statiche dedicate
   return portfolio
-    .filter((item) => item.slug !== 'hypermoto')
+    .filter((item) => item.slug !== 'hypermoto' && item.slug !== 'motoargento')
     .map((item) => ({ slug: item.slug }))
 }
 
