@@ -37,12 +37,12 @@ const streetfighterCaptions = [
 const reels = [
   {
     src: '/videos/hypermoto/reel-1.mp4',
-    poster: '/images/portfolio/hypermoto/01.jpg',
+    poster: '/videos/hypermoto/reel-1-poster.jpg',
     caption: 'Non mostra la moto. Costruisce il desiderio di averla.',
   },
   {
     src: '/videos/hypermoto/reel-2.mp4',
-    poster: '/images/portfolio/hypermoto/06.jpg',
+    poster: '/videos/hypermoto/reel-2-poster.jpg',
     caption: 'Il processo raccontato diventa prova di qualit\u00e0.',
   },
   // reel-3 e reel-4 da aggiungere
