@@ -21,8 +21,5 @@ Thumbs.db
 patch-fs.cjs
 build-wrapper.cjs
 
-# Video (troppo grandi per GitHub — da hostare esternamente)
-public/videos/
-
 # Other projects in parent folder (exclude everything not belonging to this project)
 DaVinci-Scripts/
