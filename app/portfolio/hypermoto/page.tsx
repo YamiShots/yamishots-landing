@@ -34,21 +34,21 @@ const streetfighterCaptions = [
   'QUANDO LA MOTO PARLA DA SOLA',
 ]
 
-const instagramPosts = [
+const reels = [
   {
-    placeholder: 'DWd3zX_sBVB',
+    src: '/videos/hypermoto/reel-1.mp4',
     caption: 'Non mostra la moto. Costruisce il desiderio di averla.',
   },
   {
-    placeholder: 'DUoEV1ogvpW',
+    src: '/videos/hypermoto/reel-2.mp4',
     caption: 'Il processo raccontato diventa prova di qualit\u00e0.',
   },
   {
-    placeholder: 'PLACEHOLDER_3',
+    src: '/videos/hypermoto/reel-3.mp4',
     caption: 'Un dettaglio al giorno tiene lontano il cliente che tratta sul prezzo.',
   },
   {
-    placeholder: 'PLACEHOLDER_4',
+    src: '/videos/hypermoto/reel-4.mp4',
     caption: 'L\u2019identit\u00e0 visiva che il cliente riconosce ancora prima di entrare.',
   },
 ]
@@ -118,7 +118,7 @@ export default function HypermotoPage() {
         </div>
       </section>
 
-      {/* 3. I CONTENUTI — Instagram */}
+      {/* 3. I CONTENUTI — Video locali */}
       <section className="py-20 px-6 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto">
           <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
@@ -128,21 +128,18 @@ export default function HypermotoPage() {
             Quello che abbiamo prodotto.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {instagramPosts.map((post, i) => (
+            {reels.map((reel, i) => (
               <div key={i} className="flex flex-col gap-3">
                 <div className="bg-[#111111] border border-white/5 rounded-xl overflow-hidden">
-                  <iframe
-                    src={`https://www.instagram.com/p/${post.placeholder}/embed/`}
-                    width="400"
-                    height="480"
-                    frameBorder="0"
-                    scrolling="no"
-                    allowTransparency={true}
-                    className="w-full"
-                    style={{ minHeight: '480px' }}
+                  <video
+                    src={reel.src}
+                    controls
+                    preload="none"
+                    playsInline
+                    className="w-full aspect-[9/16] object-cover"
                   />
                 </div>
-                <p className="text-zinc-500 text-sm leading-relaxed px-1">{post.caption}</p>
+                <p className="text-zinc-500 text-sm leading-relaxed px-1">{reel.caption}</p>
               </div>
             ))}
           </div>
