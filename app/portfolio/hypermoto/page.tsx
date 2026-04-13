@@ -37,10 +37,12 @@ const streetfighterCaptions = [
 const reels = [
   {
     src: '/videos/hypermoto/reel-1.mp4',
+    poster: '/images/portfolio/hypermoto/01.jpg',
     caption: 'Non mostra la moto. Costruisce il desiderio di averla.',
   },
   {
     src: '/videos/hypermoto/reel-2.mp4',
+    poster: '/images/portfolio/hypermoto/06.jpg',
     caption: 'Il processo raccontato diventa prova di qualit\u00e0.',
   },
   // reel-3 e reel-4 da aggiungere
@@ -126,6 +128,7 @@ export default function HypermotoPage() {
                 <div className="bg-[#111111] border border-white/5 rounded-xl overflow-hidden">
                   <video
                     src={reel.src}
+                    poster={reel.poster}
                     controls
                     preload="none"
                     playsInline
