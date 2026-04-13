@@ -43,14 +43,7 @@ const reels = [
     src: '/videos/hypermoto/reel-2.mp4',
     caption: 'Il processo raccontato diventa prova di qualit\u00e0.',
   },
-  {
-    src: '/videos/hypermoto/reel-3.mp4',
-    caption: 'Un dettaglio al giorno tiene lontano il cliente che tratta sul prezzo.',
-  },
-  {
-    src: '/videos/hypermoto/reel-4.mp4',
-    caption: 'L\u2019identit\u00e0 visiva che il cliente riconosce ancora prima di entrare.',
-  },
+  // reel-3 e reel-4 da aggiungere
 ]
 
 export const metadata = {
