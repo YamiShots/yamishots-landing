@@ -36,11 +36,11 @@ const streetfighterCaptions = [
 
 const instagramPosts = [
   {
-    placeholder: 'PLACEHOLDER_1',
+    placeholder: 'DWd3zX_sBVB',
     caption: 'Non mostra la moto. Costruisce il desiderio di averla.',
   },
   {
-    placeholder: 'PLACEHOLDER_2',
+    placeholder: 'DUoEV1ogvpW',
     caption: 'Il processo raccontato diventa prova di qualit\u00e0.',
   },
   {
