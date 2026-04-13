@@ -5,7 +5,10 @@ import { WA_LINK } from '@/app/lib/constants'
 import Slideshow from './Slideshow'
 
 export function generateStaticParams() {
-  return portfolio.map((item) => ({ slug: item.slug }))
+  // hypermoto ha una pagina statica dedicata in /portfolio/hypermoto/page.tsx
+  return portfolio
+    .filter((item) => item.slug !== 'hypermoto')
+    .map((item) => ({ slug: item.slug }))
 }
 
 export async function generateMetadata({
