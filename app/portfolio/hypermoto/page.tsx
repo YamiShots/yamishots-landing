@@ -117,7 +117,7 @@ export default function HypermotoPage() {
                     controls
                     preload="none"
                     playsInline
-                    className="w-full"
+                    className="w-full aspect-[9/16] object-cover"
                   />
                 </div>
                 <p className="text-zinc-500 text-sm leading-relaxed px-1">{reel.caption}</p>
