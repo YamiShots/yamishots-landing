@@ -19,23 +19,28 @@ const ktmPhotos = [
   { src: '/images/portfolio/motoargento/10.jpg', caption: 'QUANDO LA MOTO PARLA E IL BRAND ASCOLTA' },
 ]
 
-const instagramPosts = [
+const reels = [
   {
-    placeholder: 'PLACEHOLDER_1',
+    src: '/videos/motoargento/reel-1.mp4',
+    poster: '/videos/motoargento/reel-1-poster.jpg',
     caption: 'Non un post. Una dichiarazione di posizionamento che rimane.',
   },
   {
-    placeholder: 'PLACEHOLDER_2',
+    src: '/videos/motoargento/reel-2.mp4',
+    poster: '/videos/motoargento/reel-2-poster.jpg',
     caption: 'Feed coerente significa che ogni nuovo follower capisce subito chi sei.',
   },
   {
-    placeholder: 'PLACEHOLDER_3',
+    src: '/videos/motoargento/reel-3.mp4',
+    poster: '/videos/motoargento/reel-3-poster.jpg',
     caption: 'Il cliente premium non tratta sul prezzo se il profilo lo convince prima.',
   },
   {
-    placeholder: 'PLACEHOLDER_4',
+    src: '/videos/motoargento/reel-4.mp4',
+    poster: '/videos/motoargento/reel-4-poster.jpg',
     caption: 'Storytelling che trasforma un acquisto in un\u2019esperienza attesa.',
   },
+  // Aggiungere i file in public/videos/motoargento/ e i poster corrispondenti
 ]
 
 export const metadata = {
@@ -103,7 +108,7 @@ export default function MotoargentoPage() {
         </div>
       </section>
 
-      {/* 3. I CONTENUTI — Instagram placeholder */}
+      {/* 3. I CONTENUTI — Video locali */}
       <section className="py-20 px-6 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto">
           <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
@@ -113,21 +118,19 @@ export default function MotoargentoPage() {
             Quello che abbiamo costruito.
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {instagramPosts.map((post, i) => (
+            {reels.map((reel, i) => (
               <div key={i} className="flex flex-col gap-3">
                 <div className="bg-[#111111] border border-white/5 rounded-xl overflow-hidden">
-                  <iframe
-                    src={`https://www.instagram.com/p/${post.placeholder}/embed/`}
-                    width="400"
-                    height="480"
-                    frameBorder="0"
-                    scrolling="no"
-                    allowTransparency={true}
-                    className="w-full"
-                    style={{ minHeight: '480px' }}
+                  <video
+                    src={reel.src}
+                    poster={reel.poster}
+                    controls
+                    preload="none"
+                    playsInline
+                    className="w-full aspect-[9/16] object-cover"
                   />
                 </div>
-                <p className="text-zinc-500 text-sm leading-relaxed px-1">{post.caption}</p>
+                <p className="text-zinc-500 text-sm leading-relaxed px-1">{reel.caption}</p>
               </div>
             ))}
           </div>
