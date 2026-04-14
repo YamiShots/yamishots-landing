@@ -127,7 +127,7 @@ export default function MotoargentoPage() {
                     controls
                     preload="none"
                     playsInline
-                    className="w-full aspect-square object-contain bg-black"
+                    className="w-full"
                   />
                 </div>
                 <p className="text-zinc-500 text-sm leading-relaxed px-1">{reel.caption}</p>
