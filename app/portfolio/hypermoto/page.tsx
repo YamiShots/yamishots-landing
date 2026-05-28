@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { WA_LINK } from '@/app/lib/constants'
+import { siteContent, getWaLink } from '@/app/lib/content'
+const WA_LINK = getWaLink(siteContent)
 import GalleryStack from '@/app/components/GalleryStack'
 import GalleryGrid from '@/app/components/GalleryGrid'
 
