@@ -1,0 +1,202 @@
+{
+  "contact": {
+    "waNumber": "393807590956",
+    "waMessage": "Ciao, vorrei saperne di più sui servizi YamiShots"
+  },
+  "meta": {
+    "title": "YamiShots – Il tuo livello è alto. La tua vetrina no.",
+    "description": "Fotografia e video professionali per officine, preparatori, concessionari e showroom nel mondo moto e auto. Alza la percezione del tuo brand.",
+    "ogTitle": "YamiShots – Il tuo livello è alto. La tua vetrina no.",
+    "ogDescription": "Fotografia e video per il mondo moto e auto. Smetti di comunicare come tutti gli altri."
+  },
+  "nav": {
+    "links": [
+      { "href": "#works", "label": "Lavori" },
+      { "href": "#method", "label": "Metodo" },
+      { "href": "#pricing", "label": "Prezzi" },
+      { "href": "#faq", "label": "FAQ" }
+    ],
+    "cta": "Scrivimi",
+    "ctaMobile": "Scrivimi su WhatsApp"
+  },
+  "hero": {
+    "eyebrow": "Fotografia & Video · Moto e Auto",
+    "headline": "Il tuo livello è alto.",
+    "headlineFaded": "La tua vetrina no.",
+    "subtext": "Ogni giorno perdi clienti premium non perché lavori male, ma perché comunichi come tutti gli altri.",
+    "cta1": "Scrivimi su WhatsApp",
+    "cta2": "Guarda i lavori",
+    "socialProof": ["Hypermoto", "MotoPerformance", "MotoArgento"],
+    "bgImage": "/images/hero-bg.jpg"
+  },
+  "problems": {
+    "eyebrow": "Parliamoci chiaro",
+    "title": "Verità scomode.",
+    "items": [
+      {
+        "number": "01",
+        "headline": "Il tuo profilo dice che sei uno qualunque.",
+        "body": "Anche se hai anni di esperienza. Anche se chi ti conosce ti consiglia a terzi. Anche se quello che fai in officina o in showroom vale molto più di quello che comunichi."
+      },
+      {
+        "number": "02",
+        "headline": "Online non conta quello che sai fare.",
+        "body": "Conta quello che riesci a far percepire. Il tuo competitor che magari lavora peggio di te ha un feed curato e porta a casa i clienti che dovresti avere tu."
+      },
+      {
+        "number": "03",
+        "headline": "Il prezzo diventa l'unica leva che hai.",
+        "body": "I clienti che spendono senza discutere scelgono chi comunica meglio. Sempre. Anche se il tuo lavoro è superiore. Ogni mese con contenuti mediocri è margine lasciato sul tavolo."
+      }
+    ]
+  },
+  "costs": {
+    "eyebrow": "Il costo reale",
+    "title": "Cosa ti costa davvero comunicare male.",
+    "body1Bold": "Non è una questione estetica.",
+    "body1Muted": "È economica.",
+    "body2": "Quando la tua vetrina digitale non regge il confronto, il prezzo diventa l'unica leva che hai. Scendi. Tratti. Cedi.",
+    "body3": "I clienti che spendono senza discutere — quelli che cercano qualità, non il risparmio — scelgono chi comunica meglio.",
+    "body3Emphasis": "Sempre.",
+    "body3Suffix": "Anche se il tuo lavoro è superiore.",
+    "consequences": [
+      "Lavori a tariffe più basse di quanto meriti",
+      "Perdi clienti premium a favore di chi comunica meglio",
+      "Sprechi tempo a trattare invece di costruire il brand",
+      "Ogni mese di contenuti mediocri è margine lasciato sul tavolo"
+    ]
+  },
+  "caseStudies": {
+    "eyebrow": "Risultati reali",
+    "title": "Chi ha già scelto di comunicare meglio.",
+    "cases": [
+      {
+        "slug": "hypermoto",
+        "client": "Hypermoto",
+        "tag": "Piano editoriale",
+        "description": "Piano editoriale + produzione continuativa. Ogni contenuto costruisce percezione prima che il cliente arrivi in sede.",
+        "result": "Profilo riposizionato in 60 giorni",
+        "image": "/images/case-hypermoto.jpg"
+      },
+      {
+        "slug": "motoargento",
+        "client": "MotoArgento",
+        "tag": "Profilo + storytelling",
+        "description": "Profilo riscritto da zero. Feed coerente, contenuti premium, storytelling che posiziona il brand sopra la concorrenza locale.",
+        "result": "Brand sopra la concorrenza locale",
+        "image": "/images/case-motoargento.jpg"
+      }
+    ]
+  },
+  "method": {
+    "eyebrow": "Il processo",
+    "title": "Come si alza la percezione?",
+    "subtitle": "Tre step. Nel concreto.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Consulenza",
+        "description": "Obiettivo, stile e cosa valorizzare. Ti dico subito cosa serve e cosa è inutile."
+      },
+      {
+        "number": "02",
+        "title": "Shooting",
+        "description": "Riprese e foto curate: processo, dettagli e risultato, con uno stile visivo coerente."
+      },
+      {
+        "number": "03",
+        "title": "Consegna",
+        "description": "Reels + foto ottimizzate per social. Una revisione inclusa. Pubblicazione facile."
+      }
+    ]
+  },
+  "pricing": {
+    "eyebrow": "Prezzi",
+    "title": "Scegli da dove vuoi iniziare.",
+    "note": "Non sai da dove partire? Scrivimi e ti indico il percorso più adatto.",
+    "plans": [
+      {
+        "name": "Shooting Singolo",
+        "price": "€300",
+        "priceNote": "a partire da",
+        "description": "Per alzare subito la percezione e fare ordine nella tua vetrina digitale.",
+        "features": [
+          "Produzione in sede (foto + video)",
+          "Reels + foto + cover pronte per IG",
+          "1 revisione inclusa"
+        ],
+        "cta": "Prenota ora",
+        "highlighted": false
+      },
+      {
+        "name": "Piano Mensile",
+        "price": "€800",
+        "priceNote": "al mese",
+        "description": "Per crescere con costanza e mantenere uno standard premium ogni settimana.",
+        "features": [
+          "1/2 shooting al mese",
+          "Format replicabili: processo, dettagli, stock",
+          "Giriamo. Consegno. Pubblichi."
+        ],
+        "cta": "Richiedi disponibilità",
+        "highlighted": true,
+        "badge": "Più scelto"
+      },
+      {
+        "name": "Progetto Custom",
+        "price": "Su misura",
+        "priceNote": "preventivo gratuito",
+        "description": "Trailer, evento, storytelling o showroom: quando serve il massimo impatto.",
+        "features": [
+          "Concept + Moodboard",
+          "Shooting + b-roll premium",
+          "Montaggio + color + sound design"
+        ],
+        "cta": "Contattami per info",
+        "highlighted": false
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Già so cosa stai pensando.",
+    "items": [
+      {
+        "q": "€300 per uno shooting sono tanti.",
+        "a": "Dipende come la guardi. Se uno shooting ben fatto ti fa chiudere anche solo un cliente premium in più — uno che paga senza trattare — si ripaga tre volte. Il vero costo è quello invisibile: mesi di contenuti mediocri che tengono lontano chi spende davvero."
+      },
+      {
+        "q": "Ho già qualcuno che mi fa le foto/video.",
+        "a": "Ottimo. Se stai crescendo e il tuo profilo comunica il tuo livello, non cambiare niente. Se sei qui, probabilmente qualcosa non torna. La differenza non è nelle foto: è in una strategia visiva coerente che costruisce percezione nel tempo."
+      },
+      {
+        "q": "Non ho tempo di gestire i social.",
+        "a": "Non devi. Il mio lavoro finisce con contenuti pronti da pubblicare — reels ottimizzati, foto già dimensionate. Tu carichi. Ci vogliono cinque minuti."
+      },
+      {
+        "q": "Non so se funziona per il mio settore.",
+        "a": "Lavoro esclusivamente con officine, preparatori, concessionari e showroom nel mondo moto e auto. Non è un servizio generico. È costruito su questo settore."
+      },
+      {
+        "q": "Devo metterci la faccia / parlare in camera?",
+        "a": "No. Posso costruire tutto attorno al lavoro, ai dettagli, ai mezzi. Il brand non sei per forza tu in camera — è il processo che mostri, l'attenzione che metti, il risultato che ottieni."
+      },
+      {
+        "q": "Prima voglio vedere i risultati.",
+        "a": "Giusto. Per questo esistono Hypermoto, MotoPerformance e MotoArgento. Guarda i loro profili. Se vedi qualcosa che ti convince, parliamoci."
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Pronto a smettere di comunicare",
+    "titleFaded": "come tutti gli altri?",
+    "subtext": "Un messaggio su WhatsApp. Nessun impegno. Parliamo del tuo progetto e vediamo se ha senso lavorare insieme.",
+    "cta": "Scrivimi su WhatsApp",
+    "bgImage": "/images/cta-bg.jpg"
+  },
+  "footer": {
+    "tagline": "Fotografia & Video · Moto e Auto",
+    "copyright": "© 2025 YamiShots",
+    "waLabel": "WhatsApp"
+  }
+}
