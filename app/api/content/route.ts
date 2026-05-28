@@ -1,28 +1,41 @@
 import { NextResponse } from 'next/server'
 
-const GITHUB_OWNER = process.env.GITHUB_OWNER ?? 'YamiShots'
-const GITHUB_REPO = process.env.GITHUB_REPO ?? 'yamishots-landing'
-const GITHUB_PAT = process.env.GITHUB_PAT ?? ''
+// Force dynamic — impedisce che Next.js pre-renderizzi la route a build time
+export const dynamic = 'force-dynamic'
+
 const CONTENT_FILE_PATH = 'app/lib/content.json'
 
-const githubHeaders = {
-  Authorization: `Bearer ${GITHUB_PAT}`,
-  Accept: 'application/vnd.github+json',
-  'X-GitHub-Api-Version': '2022-11-28',
-  'Content-Type': 'application/json',
+function getConfig() {
+  return {
+    owner: process.env.GITHUB_OWNER ?? 'YamiShots',
+    repo:  process.env.GITHUB_REPO  ?? 'yamishots-landing',
+    pat:   process.env.GITHUB_PAT   ?? '',
+    adminPassword: process.env.ADMIN_PASSWORD ?? '',
+  }
+}
+
+function githubHeaders(pat: string) {
+  return {
+    Authorization: `Bearer ${pat}`,
+    Accept: 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28',
+    'Content-Type': 'application/json',
+  }
 }
 
 // GET — fetch current content.json from GitHub
 export async function GET() {
-  if (!GITHUB_PAT) {
+  const { owner, repo, pat } = getConfig()
+
+  if (!pat) {
     return NextResponse.json({ error: 'GITHUB_PAT not configured' }, { status: 500 })
   }
 
-  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${CONTENT_FILE_PATH}`
-  const res = await fetch(url, { headers: githubHeaders, cache: 'no-store' })
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${CONTENT_FILE_PATH}`
+  const res = await fetch(url, { headers: githubHeaders(pat), cache: 'no-store' })
 
   if (!res.ok) {
-    return NextResponse.json({ error: 'Failed to fetch from GitHub' }, { status: res.status })
+    return NextResponse.json({ error: 'Failed to fetch from GitHub', status: res.status }, { status: res.status })
   }
 
   const data = await res.json()
@@ -30,19 +43,20 @@ export async function GET() {
 
   return NextResponse.json({
     content: JSON.parse(decoded),
-    sha: data.sha, // needed to update the file
+    sha: data.sha,
   })
 }
 
 // PUT — commit updated content.json to GitHub → triggers Vercel redeploy
 export async function PUT(request: Request) {
-  if (!GITHUB_PAT) {
+  const { owner, repo, pat, adminPassword } = getConfig()
+
+  if (!pat) {
     return NextResponse.json({ error: 'GITHUB_PAT not configured' }, { status: 500 })
   }
 
-  // Verify admin password
   const authHeader = request.headers.get('x-admin-password')
-  if (authHeader !== process.env.ADMIN_PASSWORD) {
+  if (!adminPassword || authHeader !== adminPassword) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
@@ -54,11 +68,11 @@ export async function PUT(request: Request) {
   }
 
   const encoded = Buffer.from(JSON.stringify(content, null, 2)).toString('base64')
-  const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${CONTENT_FILE_PATH}`
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${CONTENT_FILE_PATH}`
 
   const res = await fetch(url, {
     method: 'PUT',
-    headers: githubHeaders,
+    headers: githubHeaders(pat),
     body: JSON.stringify({
       message: 'chore: update site content via admin panel',
       content: encoded,
