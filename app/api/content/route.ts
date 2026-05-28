@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server'
 
-// Force dynamic — impedisce che Next.js pre-renderizzi la route a build time
 export const dynamic = 'force-dynamic'
 
 const CONTENT_FILE_PATH = 'app/lib/content.json'
@@ -23,31 +22,19 @@ function githubHeaders(pat: string) {
   }
 }
 
-// GET — fetch current content.json from GitHub
 export async function GET() {
-  const { owner, repo, pat } = getConfig()
+  const { pat, owner, repo } = getConfig()
 
-  if (!pat) {
-    return NextResponse.json({ error: 'GITHUB_PAT not configured' }, { status: 500 })
-  }
-
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${CONTENT_FILE_PATH}`
-  const res = await fetch(url, { headers: githubHeaders(pat), cache: 'no-store' })
-
-  if (!res.ok) {
-    return NextResponse.json({ error: 'Failed to fetch from GitHub', status: res.status }, { status: res.status })
-  }
-
-  const data = await res.json()
-  const decoded = Buffer.from(data.content, 'base64').toString('utf-8')
-
+  // DEBUG TEMPORANEO — rimuovere dopo aver verificato
   return NextResponse.json({
-    content: JSON.parse(decoded),
-    sha: data.sha,
+    pat_defined: typeof process.env.GITHUB_PAT !== 'undefined',
+    pat_length: pat.length,
+    pat_preview: pat.slice(0, 6),
+    owner,
+    repo,
   })
 }
 
-// PUT — commit updated content.json to GitHub → triggers Vercel redeploy
 export async function PUT(request: Request) {
   const { owner, repo, pat, adminPassword } = getConfig()
 
