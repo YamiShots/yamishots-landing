@@ -1,43 +1,50 @@
-import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getPortfolioItem, portfolio } from '@/app/lib/portfolio'
-import { WA_LINK } from '@/app/lib/constants'
-import Slideshow from './Slideshow'
+import { siteContent, getWaLink } from '@/app/lib/content'
+const WA_LINK = getWaLink(siteContent)
+import GalleryStack from '@/app/components/GalleryStack'
+import GalleryGrid from '@/app/components/GalleryGrid'
 
-export function generateStaticParams() {
-  // hypermoto e motoargento hanno pagine statiche dedicate
-  return portfolio
-    .filter((item) => item.slug !== 'hypermoto' && item.slug !== 'motoargento')
-    .map((item) => ({ slug: item.slug }))
+const supervelocePhotos = [
+  { src: '/images/portfolio/hypermoto/01.jpg', caption: 'IL DETTAGLIO CHE GIUSTIFICA IL PREZZO' },
+  { src: '/images/portfolio/hypermoto/02.jpg', caption: 'FORMA E FUNZIONE COME UN UNICO LINGUAGGIO' },
+  { src: '/images/portfolio/hypermoto/03.jpg', caption: 'OGNI ANGOLO RACCONTA UNA SCELTA DI STILE' },
+  { src: '/images/portfolio/hypermoto/04.jpg', caption: 'PRODUZIONE CHE COSTRUISCE PERCEZIONE' },
+  { src: '/images/portfolio/hypermoto/05.jpg', caption: 'L\u2019IDENTIT\u00C0 VISIVA INIZIA QUI' },
+]
+
+const streetfighterPhotos = [
+  { src: '/images/portfolio/hypermoto/06.jpg', caption: 'UNA COLLABORAZIONE CHE SI VEDE' },
+  { src: '/images/portfolio/hypermoto/07.jpg', caption: 'STREETFIGHTER. NIENT\u2019ALTRO DA AGGIUNGERE' },
+  { src: '/images/portfolio/hypermoto/08.jpg', caption: 'IL BRAND COME ESTENSIONE DELLA MOTO' },
+  { src: '/images/portfolio/hypermoto/09.jpg', caption: 'CONTENUTO CHE POSIZIONA PRIMA ANCORA DI VENDERE' },
+  { src: '/images/portfolio/hypermoto/10.jpg', caption: 'QUANDO LA MOTO PARLA DA SOLA' },
+]
+
+const reels = [
+  {
+    src: '/videos/hypermoto/reel-1.mp4',
+    poster: '/videos/hypermoto/reel-1-poster.jpg',
+    caption: 'Non mostra la moto. Costruisce il desiderio di averla.',
+  },
+  {
+    src: '/videos/hypermoto/reel-2.mp4',
+    poster: '/videos/hypermoto/reel-2-poster.jpg',
+    caption: 'Il processo raccontato diventa prova di qualit\u00e0.',
+  },
+  // reel-3 e reel-4 da aggiungere
+]
+
+export const metadata = {
+  title: 'Hypermoto \u2013 YamiShots',
+  description:
+    'Piano editoriale continuativo per Hypermoto. Da vetrina digitale generica a profilo premium riconoscibile.',
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  const { slug } = await params
-  const item = getPortfolioItem(slug)
-  if (!item) return {}
-  return {
-    title: `${item.client} – YamiShots`,
-    description: item.shortDesc,
-  }
-}
-
-export default async function PortfolioPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  const { slug } = await params
-  const item = getPortfolioItem(slug)
-  if (!item) notFound()
-
+export default function HypermotoPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-zinc-950/90 backdrop-blur-md border-b border-white/5">
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
+      {/* Nav */}
+      <header className="sticky top-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/5">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-white font-bold text-xl tracking-tight">
             Yami<span className="text-accent">Shots</span>
@@ -46,14 +53,7 @@ export default async function PortfolioPage({
             href="/#works"
             className="flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm transition-colors"
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <polyline points="15 18 9 12 15 6" />
             </svg>
             Tutti i lavori
@@ -61,32 +61,124 @@ export default async function PortfolioPage({
         </div>
       </header>
 
-      {/* Hero text */}
-      <div className="max-w-4xl mx-auto px-6 pt-14 pb-8">
+      {/* 1. HERO */}
+      <section className="max-w-4xl mx-auto px-6 pt-16 pb-20">
         <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
-          {item.tag}
+          Piano editoriale continuativo
         </span>
-        <h1 className="mt-3 text-4xl md:text-5xl font-bold text-white leading-tight">
-          {item.client}
+        <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-3xl">
+          Quando ogni contenuto lavora per te anche quando sei in officina.
         </h1>
-        <p className="mt-4 text-zinc-400 text-base md:text-lg max-w-xl leading-relaxed">
-          {item.fullDesc}
+        <p className="mt-6 text-zinc-400 text-base md:text-lg max-w-xl leading-relaxed">
+          Hypermoto aveva un prodotto premium e una vetrina digitale che non lo comunicava.
+          Abbiamo cambiato questo.
         </p>
-      </div>
+      </section>
 
-      {/* Slideshow */}
-      <div className="max-w-5xl mx-auto px-6 pb-20">
-        <Slideshow photos={item.photos} client={item.client} />
-      </div>
+      {/* 2. IL PROBLEMA */}
+      <section className="bg-[#0d0d0d] py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
+            Il problema
+          </span>
+          <h2 className="mt-4 mb-10 text-2xl md:text-3xl font-bold text-white">
+            Da dove siamo partiti.
+          </h2>
+          <ul className="space-y-5">
+            {[
+              'Profilo Instagram discontinuo, nessuna identità visiva coerente.',
+              'Contenuti che mostravano la moto ma non costruivano desiderio.',
+              'Clienti premium che arrivavano in sede già convinti da altri.',
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-4">
+                <div className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-accent" />
+                <p className="text-zinc-300 text-base leading-relaxed">{item}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-      {/* CTA */}
-      <div className="border-t border-white/5 py-24 px-6 text-center">
-        <p className="text-zinc-600 text-xs uppercase tracking-widest mb-3">
-          Vuoi lo stesso risultato?
+      {/* 3. I CONTENUTI — Video locali */}
+      <section className="py-20 px-6 bg-[#0a0a0a]">
+        <div className="max-w-4xl mx-auto">
+          <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
+            I contenuti
+          </span>
+          <h2 className="mt-4 mb-10 text-2xl md:text-3xl font-bold text-white">
+            Quello che abbiamo prodotto.
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {reels.map((reel, i) => (
+              <div key={i} className="flex flex-col gap-3">
+                <div className="bg-[#111111] border border-white/5 rounded-xl overflow-hidden">
+                  <video
+                    src={reel.src}
+                    poster={reel.poster}
+                    controls
+                    preload="none"
+                    playsInline
+                    className="w-full aspect-[9/16] object-cover"
+                  />
+                </div>
+                <p className="text-zinc-500 text-sm leading-relaxed px-1">{reel.caption}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. GALLERIA SUPERVELOCE */}
+      <section className="py-20 px-6 bg-[#0d0d0d]">
+        <div className="max-w-4xl mx-auto mb-10">
+          <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
+            Galleria
+          </span>
+          <h2 className="mt-4 text-2xl md:text-3xl font-bold text-white">
+            Superveloce 1000 Serie Oro
+          </h2>
+        </div>
+        <GalleryStack photos={supervelocePhotos} />
+      </section>
+
+      {/* 5. GALLERIA STREETFIGHTER */}
+      <section className="py-20 px-6 bg-[#0a0a0a]">
+        <div className="max-w-4xl mx-auto mb-10">
+          <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
+            Galleria
+          </span>
+          <h2 className="mt-4 text-2xl md:text-3xl font-bold text-white">
+            Streetfighter V4 x Supreme
+          </h2>
+        </div>
+        <GalleryGrid photos={streetfighterPhotos} />
+      </section>
+
+      {/* 6. RISULTATO */}
+      <section className="py-20 px-6 bg-[#0d0d0d]">
+        <div className="max-w-4xl mx-auto flex justify-center">
+          <div className="bg-[#111111] border border-white/5 rounded-2xl px-10 py-8 text-center max-w-lg w-full">
+            <span className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase">
+              Risultato
+            </span>
+            <p className="mt-4 text-white text-lg font-semibold leading-relaxed">
+              Piano editoriale attivo
+              <span className="text-[#444444] mx-3">·</span>
+              Profilo riposizionato in 60 giorni
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CTA FINALE */}
+      <section className="py-24 px-6 bg-[#0a0a0a] text-center border-t border-white/5">
+        <p className="text-[11px] font-medium tracking-[0.15em] text-[#888888] uppercase mb-4">
+          Il prossimo
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-          Parliamo del tuo progetto.
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          Anche il tuo lavoro merita una vetrina così.
         </h2>
+        <p className="text-zinc-500 text-base mb-10">Un messaggio. Nessun impegno.</p>
         <a
           href={WA_LINK}
           target="_blank"
@@ -98,7 +190,7 @@ export default async function PortfolioPage({
           </svg>
           Scrivimi su WhatsApp
         </a>
-      </div>
+      </section>
     </div>
   )
 }
